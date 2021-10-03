@@ -25,17 +25,15 @@ typedef struct s_fractol {
 }				t_fractol;
 
 typedef struct	s_vars {
-	char	name;
-	double	zoom;
-	double	dx;
-	double	dy;
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int 	line_length;
-	int		endian;
+	char		name;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int 		line_length;
+	int			endian;
+	t_fractol	fractal;
 }				t_vars;
 
 
