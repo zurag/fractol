@@ -11,12 +11,7 @@ void ft_init_mandelbrot(t_fractol *fractal, t_vars *vars_mlx)
 	fractal->zoom = vars_mlx->zoom;
 	fractal->const_im = 0;
 	fractal->const_real = 0;
-	fractal->max_iter = 150;
-}
-
-int ft_create_color(int i)
-{	
-	return (create_trgb(0, (3 * sin(i) + 100), (60 * sin(i) + 150), (10 * sin(i) + 200)));
+	fractal->max_iter = 50;
 }
 
 int	calculate_z(t_fractol *fractal, t_vars *vars_mlx, int x, int y)

@@ -5,6 +5,7 @@
 #define HEIGHT	600
 
 #include "../minilibx/mlx.h"
+#include "../libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -24,6 +25,7 @@ typedef struct s_fractol {
 }				t_fractol;
 
 typedef struct	s_vars {
+	char	name;
 	double	zoom;
 	double	dx;
 	double	dy;
@@ -40,6 +42,7 @@ typedef struct	s_vars {
 void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 void	ft_mandelbrot(t_vars *vars_mlx);
 int		ft_zoom(int key_code, int x, int y, t_vars *vars_mlx);
+int		ft_mouse(int key_code, int x, int y, t_vars *vars_mlx);
 int		mlx_exit(int key_code, t_vars *vars_mlx);
 int		create_trgb(int t, int r, int g, int b);
 int		ft_create_color(int i);

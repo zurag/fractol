@@ -10,17 +10,18 @@ void ft_init_julia(t_fractol *fractal, t_vars *vars_mlx)
 	fractal->old_z_real = 0;
 	fractal->zoom = vars_mlx->zoom;
 	
-	fractal->const_real = 0.285;
-	fractal->const_im = 0.01;
 
-	fractal->const_real = -0.70176;
-	fractal->const_im = -0.3842;
+	fractal->const_real = vars_mlx->dx;
+	fractal->const_im = vars_mlx->dy;
 
-	fractal->const_real = -0.8;
-	fractal->const_im = 0.156;
+	// fractal->const_real = -0.70176;
+	// fractal->const_im = -0.3842;
+
+	// fractal->const_real = -0.8;
+	// fractal->const_im = 0.156;
 
 
-	fractal->max_iter = 500;
+	fractal->max_iter = 50;
 }
 
 static int	calculate_z(t_fractol *fractal, t_vars *vars_mlx, int x, int y)

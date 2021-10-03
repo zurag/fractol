@@ -9,13 +9,14 @@ CFLAGS		= -Wall -Wextra -Werror -MMD $(DEBUG_FLAGS)
 CPPFLAGS	= $(CFLAGS) -march=native -O2 -msse4a -flto -pipe
 HEADERS		= include/
 
-SRCS =	main.c hooks.c Mandelbrot.c Julia.c 
+SRCS =	main.c hooks.c Mandelbrot.c Julia.c color.c
 
 OBJS = $(SRCS:.c=.o)
 
 $(NAME):		$(OBJS)
 				cd minilibx && $(MAKE) && mv libmlx.dylib ../libmlx.dylib
-				$(CC) $(CPPFLAGS) -I $(HEADERS) $(OBJS) libmlx.dylib -o $(NAME)
+				cd libft && $(MAKE) && mv libft.a ../libft.a
+				$(CC) $(CPPFLAGS) -I $(HEADERS) $(OBJS) libft.a libmlx.dylib -o $(NAME)
 
 all:			$(NAME)
 
