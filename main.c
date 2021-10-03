@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 	mlx_hook(vars_mlx.win, 2, 0, mlx_exit, &vars_mlx);
 	mlx_hook(vars_mlx.win, 4, 0, ft_zoom, &vars_mlx);
 	if (vars_mlx.name == 'j')
-		mlx_hook(vars_mlx.win, 6, 1L<<7, ft_mouse, &vars_mlx);
+		mlx_hook(vars_mlx.win, 6, 1L<<6, ft_mouse, &vars_mlx);
 	mlx_loop(vars_mlx.mlx);
 	return (0);
 }
