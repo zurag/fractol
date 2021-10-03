@@ -15,6 +15,7 @@ typedef struct s_fractol {
 	double	zoom;
 	double	dx;
 	double	dy;
+	int			flag_j;
 	int		max_iter;
 	double	new_z_real;
 	double	new_z_im;
@@ -40,7 +41,7 @@ typedef struct	s_vars {
 void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 void	ft_mandelbrot(t_vars *vars_mlx);
 int		ft_zoom(int key_code, int x, int y, t_vars *vars_mlx);
-int		ft_mouse(int key_code, int x, int y, t_vars *vars_mlx);
+int		ft_mouse(int x, int y, t_vars *vars_mlx);
 int		mlx_exit(int key_code, t_vars *vars_mlx);
 int		create_trgb(int t, int r, int g, int b);
 int		ft_create_color(int i);

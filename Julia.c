@@ -6,16 +6,11 @@ void ft_init_julia(t_fractol *fractal)
 	fractal->new_z_real = 0;
 	fractal->old_z_im = 0;
 	fractal->old_z_real = 0;
-	
-
-	// fractal->const_real = vars_mlx->dx;
-	// fractal->const_im = vars_mlx->dy;
-
-	fractal->const_real = -0.70176;
-	fractal->const_im = -0.3842;
-
-	// fractal->const_real = -0.8;
-	// fractal->const_im = 0.156;
+	if (fractal->flag_j)
+	{
+		fractal->const_real = -0.8;
+		fractal->const_im = 0.156;
+	}
 
 
 	fractal->max_iter = 50;

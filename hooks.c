@@ -27,20 +27,14 @@ int	ft_zoom(int key_code, int x, int y, t_vars *vars_mlx)
 	return (1);
 }
 
-// int	ft_mouse(int key_code, int x, int y, t_vars *vars_mlx)
-// {
-// 	(void)key_code;
-// 	if (vars_mlx->x == 0)
-// 		vars_mlx->x = x;
-// 	if (vars_mlx->y == 0)
-// 		vars_mlx->y = y;
-// 	if (vars_mlx->name == 'j')
-// 	{
-// 		vars_mlx->fractal.const_im += (x - vars_mlx->x) / 500.f;
-// 		vars_mlx->fractal.const_real += (y - vars_mlx->y) / 500.f;
-// 		vars_mlx->x = x;
-// 		vars_mlx->y = y;
-// 		ft_julia(vars_mlx);
-// 	}
-// 	return (1);
-// }
+int	ft_mouse(int x, int y, t_vars *vars_mlx)
+{
+	if (vars_mlx->name == 'j')
+	{
+		vars_mlx->fractal.const_im = (x - WIDHT / (double)2) / 500.f;
+		vars_mlx->fractal.const_real = (HEIGHT / 2 - (double)y) / 500.f;
+		vars_mlx->fractal.flag_j = 0;
+		ft_julia(vars_mlx);
+	}
+	return (1);
+}

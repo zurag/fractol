@@ -24,13 +24,12 @@ int	main(int argc, char **argv)
 {
 	t_vars	vars_mlx;
 	
+	vars_mlx.fractal.flag_j = 1;
 	vars_mlx.fractal.zoom = 1;
 	if (argc != 2)
 		ft_print_available_params();
 	vars_mlx.mlx = mlx_init(); 
 	vars_mlx.win = mlx_new_window(vars_mlx.mlx, WIDHT, HEIGHT, "fractal");
-	// vars_mlx.x = 0;
-	// vars_mlx.y = 0;
 	if (!ft_strncmp(argv[1], "julia", 8))
 	{
 		vars_mlx.name = 'j';
@@ -47,19 +46,10 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_print_available_params();
-	// ft_init_struct(&vars_mlx);
-	// ft_mandelbrot(&vars_mlx);
-	// ft_julia(&vars_mlx);
 	mlx_hook(vars_mlx.win, 2, 0, mlx_exit, &vars_mlx);
 	mlx_hook(vars_mlx.win, 4, 0, ft_zoom, &vars_mlx);
-	// mlx_hook(vars_mlx.win, 6, 0, ft_mouse, &vars_mlx);
+	if (vars_mlx.name == 'j')
+		mlx_hook(vars_mlx.win, 6, 1L<<7, ft_mouse, &vars_mlx);
 	mlx_loop(vars_mlx.mlx);
-
-
-
-	// for (int i = 0; i < 35; i++)
-	// 	printf("%3d ", rand() % 255);
-	 
-
 	return (0);
 }
