@@ -8,7 +8,6 @@ void ft_init_mandelbrot(t_fractol *fractal)
 	fractal->old_z_real = 0;
 	fractal->const_im = 0;
 	fractal->const_real = 0;
-	fractal->max_iter = 50;
 }
 
 int	calculate_z(t_fractol *fractal, int x, int y)
@@ -16,8 +15,8 @@ int	calculate_z(t_fractol *fractal, int x, int y)
 	int i;
 
 	i = 0;	
-	fractal->const_real = 1.5 * ( x - WIDHT / 2) / (0.5 * fractal->zoom * WIDHT) + fractal->dx;
-	fractal->const_im = (y - HEIGHT / 2) / (0.5 * fractal->zoom * HEIGHT) + fractal->dy;
+	fractal->const_real = 1.5 * (x + fractal->dx - WIDHT / 2) / (0.5 * fractal->zoom * WIDHT);
+	fractal->const_im = (y + fractal->dy - HEIGHT / 2) / (0.5 * fractal->zoom * HEIGHT);
 	fractal->new_z_im = 0;
 	fractal->new_z_real = 0;
 	fractal->old_z_im = 0;

@@ -16,7 +16,7 @@ int	create_trgb(int t, int r, int g, int b)
 
 void ft_print_available_params()
 {
-	write(2, "Available params:\n julia; mandelbrot;\n", 39);
+	write(2, "Available params: julia; mandelbrot;\n", 38);
 	exit(1);
 }
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 	
 	vars_mlx.fractal.flag_j = 1;
 	vars_mlx.fractal.zoom = 1;
+	vars_mlx.fractal.max_iter = 50;
 	if (argc != 2)
 		ft_print_available_params();
 	vars_mlx.mlx = mlx_init(); 
@@ -40,7 +41,7 @@ int	main(int argc, char **argv)
 	else if (!ft_strncmp(argv[1], "mandelbrot", 11))
 	{
 		vars_mlx.name = 'm';
-		vars_mlx.fractal.dx = -0.5;
+		vars_mlx.fractal.dx = -100;
 		vars_mlx.fractal.dy = 0;
 		ft_mandelbrot(&vars_mlx);
 	}

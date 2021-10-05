@@ -12,12 +12,23 @@ int	mlx_exit(int key_code, t_vars *vars_mlx)
 
 int	ft_zoom(int key_code, int x, int y, t_vars *vars_mlx)
 {
-	(void)x;
-	(void)y;
+
+	// printf("x == %d, y == %d\n", x, y);
 	if (key_code == 5)
+	{
 		vars_mlx->fractal.zoom *= 1.1;
+		vars_mlx->fractal.max_iter += 2;
+		vars_mlx->fractal.dx +=  (double)(x - WIDHT / 2 + vars_mlx->fractal.dx) * 0.1 ;
+		vars_mlx->fractal.dy += (double)(HEIGHT / 2 - y + vars_mlx->fractal.dy) * 0.1 ;
+	}
 	else if (key_code == 4)
+	{
+		vars_mlx->fractal.dx -= (double)(x - WIDHT / 2 + vars_mlx->fractal.dx) * 0.1;
+		vars_mlx->fractal.dy -= (double)(HEIGHT / 2 - y + vars_mlx->fractal.dy) * 0.1;
+		if (vars_mlx->fractal.max_iter > 2)
+			vars_mlx->fractal.max_iter -= 2;
 		vars_mlx->fractal.zoom *= 0.9;
+	}
 	else
 		return (-1);
 	if (vars_mlx->name == 'j')

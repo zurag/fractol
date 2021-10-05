@@ -15,7 +15,7 @@ typedef struct s_fractol {
 	double	zoom;
 	double	dx;
 	double	dy;
-	int			flag_j;
+	int		flag_j;
 	int		max_iter;
 	double	new_z_real;
 	double	new_z_im;
