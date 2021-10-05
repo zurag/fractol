@@ -1,11 +1,44 @@
 #include "fractol.h"
 
-int	mlx_exit(int key_code, t_vars *vars_mlx)
+int	mlx_key(int key_code, t_vars *vars_mlx)
 {
+	// printf("key code ==%d\n", key_code);
 	if (key_code == 53)
 	{
 		mlx_destroy_window(vars_mlx->mlx, vars_mlx->win);
 		exit(0);
+	}
+	else if (key_code == 126)
+	{
+		vars_mlx->fractal.dy -= 10;
+		if (vars_mlx->name == 'j')
+			ft_julia(vars_mlx);
+		else if (vars_mlx->name == 'm')
+			ft_mandelbrot(vars_mlx);
+	}
+	else if (key_code == 125)
+	{
+		vars_mlx->fractal.dy += 10;
+		if (vars_mlx->name == 'j')
+			ft_julia(vars_mlx);
+		else if (vars_mlx->name == 'm')
+			ft_mandelbrot(vars_mlx);
+	}
+	else if (key_code == 124)
+	{
+		vars_mlx->fractal.dx += 10;
+		if (vars_mlx->name == 'j')
+			ft_julia(vars_mlx);
+		else if (vars_mlx->name == 'm')
+			ft_mandelbrot(vars_mlx);
+	}
+	else if (key_code == 123)
+	{
+		vars_mlx->fractal.dx -= 10;
+		if (vars_mlx->name == 'j')
+			ft_julia(vars_mlx);
+		else if (vars_mlx->name == 'm')
+			ft_mandelbrot(vars_mlx);
 	}
 	return (1);
 }
