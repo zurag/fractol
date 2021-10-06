@@ -2,51 +2,25 @@
 
 int	mlx_key(int key_code, t_vars *vars_mlx)
 {
-	// printf("key code ==%d\n", key_code);
 	if (key_code == 53)
 	{
 		mlx_destroy_window(vars_mlx->mlx, vars_mlx->win);
 		exit(0);
 	}
 	else if (key_code == 126)
-	{
 		vars_mlx->fractal.dy -= 10;
-		if (vars_mlx->name == 'j')
-			ft_julia(vars_mlx);
-		else if (vars_mlx->name == 'm')
-			ft_mandelbrot(vars_mlx);
-	}
 	else if (key_code == 125)
-	{
 		vars_mlx->fractal.dy += 10;
-		if (vars_mlx->name == 'j')
-			ft_julia(vars_mlx);
-		else if (vars_mlx->name == 'm')
-			ft_mandelbrot(vars_mlx);
-	}
 	else if (key_code == 124)
-	{
 		vars_mlx->fractal.dx += 10;
-		if (vars_mlx->name == 'j')
-			ft_julia(vars_mlx);
-		else if (vars_mlx->name == 'm')
-			ft_mandelbrot(vars_mlx);
-	}
 	else if (key_code == 123)
-	{
 		vars_mlx->fractal.dx -= 10;
-		if (vars_mlx->name == 'j')
-			ft_julia(vars_mlx);
-		else if (vars_mlx->name == 'm')
-			ft_mandelbrot(vars_mlx);
-	}
+	ft_launch_fractal(vars_mlx);
 	return (1);
 }
 
 int	ft_zoom(int key_code, int x, int y, t_vars *vars_mlx)
 {
-
-	// printf("x == %d, y == %d\n", x, y);
 	if (key_code == 5)
 	{
 		vars_mlx->fractal.zoom *= 1.1;
@@ -64,10 +38,7 @@ int	ft_zoom(int key_code, int x, int y, t_vars *vars_mlx)
 	}
 	else
 		return (-1);
-	if (vars_mlx->name == 'j')
-		ft_julia(vars_mlx);
-	else if (vars_mlx->name == 'm')
-		ft_mandelbrot(vars_mlx);
+	ft_launch_fractal(vars_mlx);
 	return (1);
 }
 

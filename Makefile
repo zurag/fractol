@@ -9,7 +9,7 @@ CFLAGS		= -Wall -Wextra -Werror -MMD $(DEBUG_FLAGS)
 CPPFLAGS	= $(CFLAGS) -march=native -O2 -msse4a -flto -pipe
 HEADERS		= include/
 
-SRCS =	main.c hooks.c Mandelbrot.c Julia.c color.c
+SRCS =	main.c hooks.c Mandelbrot.c Julia.c color.c Burning_ship.c utils.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -46,6 +46,8 @@ int		mlx_key(int key_code, t_vars *vars_mlx);
 int		create_trgb(int t, int r, int g, int b);
 int		ft_create_color(int i);
 void	ft_julia(t_vars *vars_mlx);
+void 	ft_burning_ship(t_vars *vars_mlx);
+void	ft_launch_fractal(t_vars *vars_mlx);
 
 
 #endif
