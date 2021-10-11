@@ -1,5 +1,11 @@
 {
 	"files.associations": {
-		"iterator": "c"
+		"iterator": "c",
+		"fractol.h": "c",
+		"math.h": "c",
+		"algorithm": "c",
+		"chrono": "c",
+		"limits": "c",
+		"ratio": "c"
 	}
 }

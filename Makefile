@@ -2,14 +2,12 @@ NAME		= fractol
 CC			= gcc
 RM			= rm -f
 DEBUG		= 1
-ifeq ($(DEBUG), 1)
-	DEBUG_FLAGS	= -fsanitize=address -g
-endif
+
 CFLAGS		= -Wall -Wextra -Werror -MMD $(DEBUG_FLAGS)
 CPPFLAGS	= $(CFLAGS) -march=native -O2 -msse4a -flto -pipe
 HEADERS		= include/
 
-SRCS =	main.c hooks.c Mandelbrot.c Julia.c color.c Burning_ship.c utils.c
+SRCS =	main.c hooks.c Mandelbrot.c Julia.c color.c Burning_ship.c fractol.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -31,7 +29,9 @@ clean:
 
 fclean:			clean
 				cd minilibx && $(MAKE) clean
+				cd libft && $(MAKE) clean
 				$(RM) libmlx.dylib
+				$(RM) libft.a
 				$(RM) $(NAME)
 
 re:				fclean all
